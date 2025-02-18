@@ -28,7 +28,7 @@ public extension XMPPIQ {
     convenience init(iqType: IQType,
                             to JID: XMPPJID? = nil,
                             elementID eid: String? = nil,
-                            child childElement: XMLElement? = nil) {
+                            child childElement: KissXML.XMLElement? = nil) {
         self.init(type: iqType.rawValue, to: JID, elementID: eid, child: childElement)
     }
 }
