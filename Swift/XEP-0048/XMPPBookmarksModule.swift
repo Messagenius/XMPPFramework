@@ -181,7 +181,7 @@ public class XMPPBookmarksModule: XMPPModule {
         let set = XMPPIQ(iqType: .set, child: query)
         
         bookmarks.forEach { (bookmark) in
-            let element = bookmark.element.copy() as! XMLElement
+            let element = bookmark.element.copy() as! KissXML.XMLElement
             storage.addChild(element)
         }
         
@@ -274,19 +274,19 @@ extension XMPPBookmarksModule: XMPPStreamDelegate {
 extension GCDMulticastDelegate: XMPPBookmarksDelegate {}
 
 private extension XMPPIQ {
-    var query: XMLElement? {
+    var query: KissXML.XMLElement? {
         
         return element(forName: PrivateXmlStorageConstants.queryElement, xmlns: PrivateXmlStorageConstants.xmlns)
     }
 }
 
-private extension XMLElement {
-    static var storage: XMLElement {
-        return XMLElement(name: XMPPBookmarkConstants.storageElement, xmlns: XMPPBookmarkConstants.xmlns)
+private extension KissXML.XMLElement {
+    static var storage: KissXML.XMLElement {
+        return KissXML.XMLElement(name: XMPPBookmarkConstants.storageElement, xmlns: XMPPBookmarkConstants.xmlns)
     }
     
-    static func query(child: XMLElement? = nil) -> XMLElement {
-        let query = XMLElement(name: PrivateXmlStorageConstants.queryElement, xmlns: PrivateXmlStorageConstants.xmlns)
+    static func query(child: KissXML.XMLElement? = nil) -> KissXML.XMLElement {
+        let query = KissXML.XMLElement(name: PrivateXmlStorageConstants.queryElement, xmlns: PrivateXmlStorageConstants.xmlns)
         if let child = child {
             query.addChild(child)
         }
