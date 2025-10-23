@@ -2,9 +2,8 @@ Pod::Spec.new do |s|
   s.name = 'XMPPFramework'
   s.version = '1.0.0'
 
-  s.osx.deployment_target = '10.9'
-  s.ios.deployment_target = '9.0'
-  s.tvos.deployment_target = '9.0'
+  #s.osx.deployment_target = '10.13'
+  s.ios.deployment_target = '15.0'
 
   s.license = { :type => 'BSD', :file => 'copying.txt' }
   s.summary = 'An XMPP Framework in Objective-C for the Mac / iOS development community.'
@@ -35,15 +34,15 @@ Pod::Spec.new do |s|
 	  }
     ss.resources = [ 'Extensions/**/*.{xcdatamodel,xcdatamodeld}']
 	  ss.dependency 'CocoaLumberjack' # Skip pinning version because of the awkward 2.x->3.x transition
-	  ss.dependency 'CocoaAsyncSocket', '~> 7.6'
-	  ss.dependency 'KissXML', '~> 5.2'
-	  ss.dependency 'libidn', '~> 1.35'
+	  ss.dependency 'CocoaAsyncSocket', '~> 7.6.5.1'
+	  ss.dependency 'KissXML', '~> 5.3.2.1'
+	  ss.dependency 'libidn', '~> 1.35.1'
   end
 
   s.subspec 'Swift' do |ss|
-	  ss.ios.deployment_target = '9.0'
-	  ss.tvos.deployment_target = '9.0'
-    ss.osx.deployment_target      = '10.10'
+	  ss.ios.deployment_target = '15.0'
+	  #ss.tvos.deployment_target = '9.0'
+    #ss.osx.deployment_target      = '10.13'
     ss.source_files = 'Swift/**/*.swift'
     ss.dependency 'XMPPFramework/default'
     ss.dependency 'CocoaLumberjack/Swift'
